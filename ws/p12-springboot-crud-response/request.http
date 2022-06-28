@@ -1,0 +1,63 @@
+GET http://localhost:8080/books
+accept: application/json
+
+###
+GET http://localhost:8080/books/1
+###
+GET http://localhost:8080/books/101
+###
+POST http://localhost:8080/books
+content-type: application/json
+
+{
+    "title": "Superman",
+    "author": "Mark",
+    "price": 5
+}
+###
+POST http://localhost:8080/books
+content-type: application/json
+
+{
+    "title": "Batman",
+    "author": "John",
+    "price": 6
+}
+###
+POST http://localhost:8080/books
+content-type: application/json
+
+{
+    "title": "Spiderman",
+    "author": "Emily",
+    "price": 4
+}
+###
+POST http://localhost:8080/books
+content-type: application/json
+
+{
+    "title": "Ironman - 2",
+    "author": "Tom",
+    "price": 8.1
+}
+###
+PUT http://localhost:8080/books/1
+content-type: application/json
+accept: application/xml
+
+{
+    "title": "Superman",
+    "author": "Mark",
+    "price": 3.5
+}
+###
+PUT http://localhost:8080/books/1
+content-type: application/xml
+accept: application/json
+
+<Book>
+  <title>Superman is back</title>
+  <author>Mark Carl</author>
+  <price>3.5</price>
+</Book>

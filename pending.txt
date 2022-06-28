@@ -1,0 +1,34 @@
+
+
+• Testing the Controller
+
+Project
+
+
+-----------------------
+
+Writing a REST Client
+
+
+
+
+
+Handle Circular dependencies
+Dependency Injection
+
+
+
+
+Concepts: Microservice Introduction
+Monolithic System / Architecture / Advantages, / Limitations
+Microservices Introduction / Advantages / Architecture
+Monolithic vs Microservices
+Microservices Challenges
+Best Practices
+Service Discovery in Microservies,Service Discovery implementation using Eureka/Consul
+
+Implementation: Microservices Concept
+
+
+
+12 Factor Principles
