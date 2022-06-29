@@ -1,0 +1,115 @@
+- producer
+<dependency>
+	<groupId>org.springframework.kafka</groupId>
+	<artifactId>spring-kafka</artifactId>
+</dependency>
+
+@Configuration
+class KafkaProducerConfig {
+
+    @Bean
+public ProducerFactory<String, Book> producerFactory() {
+    Map<String, Object> config = new HashMap<>();
+
+    config.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092");
+    config.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
+    config.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, JsonSerializer.class);
+
+    return new DefaultKafkaProducerFactory<String, Book>(config);
+}
+
+@Bean
+public KafkaTemplate<String, Book> kafkaTemplate() {
+    return new KafkaTemplate<>(producerFactory());
+}
+
+}
+
+
+
+public class Book {
+
+	private int id;
+	private String title;
+	private String author;
+	private int price;
+
+
+
+
+
+
+
+@Autowired
+private KafkaTemplate<String, Book> kafkaTemplate;
+
+private static final String TOPIC = "kafka-topic";
+
+@GetMapping("/publish")
+public String publishBook() {
+
+    int id = (int)(Math.floor(Math.random()*100));
+    kafkaTemplate.send(TOPIC, new Book(id, "Java Microservices", "Mark Carl", 99));
+
+    return "Published successfully";
+}
+
+
+
+
+- consumer
+<dependency>
+    <groupId>org.springframework.kafka</groupId>
+    <artifactId>spring-kafka</artifactId>
+</dependency>
+<dependency>
+    <groupId>com.fasterxml.jackson.core</groupId>
+    <artifactId>jackson-databind</artifactId>
+</dependency>
+
+
+@EnableKafka
+@Configuration
+public class KafkaConsumerConfig{
+
+    @Bean
+    public ConsumerFactory<String, Book> userConsumerFactory() {
+        Map<String, Object> config = new HashMap<>();
+        
+        config.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092");
+        config.put(ConsumerConfig.GROUP_ID_CONFIG, "group_id");
+        config.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
+        config.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, JsonDeserializer.class);
+        
+        return new DefaultKafkaConsumerFactory<>(
+            config, 
+            new StringDeserializer(),
+            new JsonDeserializer<>(Book.class)
+            );
+        }
+
+        @Bean
+        public ConcurrentKafkaListenerContainerFactory<String, Book> userKafkaListenerFactory() {
+            ConcurrentKafkaListenerContainerFactory<String, Book> factory 
+            = new ConcurrentKafkaListenerContainerFactory<>();
+            factory.setConsumerFactory(userConsumerFactory());
+            return factory;
+        }       
+}
+
+
+
+@KafkaListener(topics = "kafka-topic", groupId="group_id", containerFactory = "userKafkaListenerFactory")
+public void consumeJson(Book book) {
+    System.out.println("Consumed JSON Message: " + book);
+    // notify users
+    // start shipment
+    // cancel delivery
+}
+
+
+
+
+
+
+
