@@ -1,0 +1,28 @@
+https://em123ud827.execute-api.us-east-1.amazonaws.com/
+    - users 
+    - flights
+    - admins
+    - tickets
+###
+
+Integration - (Http URI)
+    /users
+    => my-user-service (aws-ip:8547/api/v3/users) - (Http URI)
+    => list of choices
+
+GET https://em123ud827.execute-api.us-east-1.amazonaws.com/users
+    - to find all users 
+POST https://em123ud827.execute-api.us-east-1.amazonaws.com/users
+    - to save new user  
+
+
+###
+
+Resource - integration
+    /flights
+    => my-flight-service (aws-ip2:7589/v3/api/users)
+
+GET https://em123ud827.execute-api.us-east-1.amazonaws.com/flights
+    - to find all flights
+POST https://em123ud827.execute-api.us-east-1.amazonaws.com/flights
+    - to save new flight

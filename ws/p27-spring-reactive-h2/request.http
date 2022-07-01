@@ -1,0 +1,34 @@
+GET http://localhost:8080/api/books
+accept: text/event-stream
+
+### 
+
+GET http://localhost:8080/api/books/10
+
+###
+
+POST http://localhost:8080/api/books
+content-type: application/json
+accept: text/event-stream
+
+{
+  "title": "Gohan",
+  "author": "tom",
+  "price": 42.2
+}
+
+### 
+
+PUT http://localhost:8080/api/books/11
+content-type: application/json
+accept: text/event-stream
+
+{
+  "title": "Gohan",
+  "author": "tom",
+  "price": 99.9
+}
+
+###
+
+DELETE http://localhost:8080/api/books/11

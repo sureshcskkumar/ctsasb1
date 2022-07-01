@@ -1,4 +1,39 @@
-• Testing the Controller
+
+AWS 
+
+Api gateway
+- http -> 30
+- rest -> 100
+
+
+Introduction to Amazon API Gateway 
+API Gateway use cases 
+Use API Gateway to create 
+- HTTP APIs
+- REST APIs 
+- Choosing between HTTP APIs and REST API   
+Build an API Gateway REST API with AWS integration 
+Create and publish a HTTP API Monitor published APIs Integrate BE with API Gateway
+
+EC2
+
+Lambda
+DynamoDb
+
+
+----------------------------------
+
+
+
+
+Monolithic -> 
+
+
+
+
+
+
+
 
 
 
