@@ -10,3 +10,26 @@ content-type: application/json
     "name": "superman",
     "age": 85412584
 }
+
+### Rest Api Gateway
+
+GET https://jsonplaceholder.typicode.com/photos
+###
+GET https://tcxwbtr5g8.execute-api.us-east-1.amazonaws.com/dev/pics 
+###
+POST https://tcxwbtr5g8.execute-api.us-east-1.amazonaws.com/dev/pics 
+content-type: application/json
+
+{
+    "title": "superman",
+    "pixel": 1024,
+    "color": "yes",
+    "link": "http://abc-xyz.com/a/y/3/deh34"
+}
+
+###
+POST https://tcxwbtr5g8.execute-api.us-east-1.amazonaws.com/dev/pics 
+
+
+
+

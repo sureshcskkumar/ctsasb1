@@ -1,0 +1,5 @@
+Presentation 2 -> 4 Jul
+
+5, 6, 7 -> ec2, dynamodb, lambda
+
+Pesentation 3 -> 8 Jul
