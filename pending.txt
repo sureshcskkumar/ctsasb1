@@ -1,9 +1,7 @@
-Suresh: Reactive springboot with security+jwt
 
+EC2 -> VM
 
-
-EC2
 
 Lambda
-DynamoDb
+
 

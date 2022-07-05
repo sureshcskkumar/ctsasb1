@@ -1,0 +1,73 @@
+Create ec2 =>
+	OS type-> linux - free -> 10GB
+		30 gb free 
+		windows server -> 13gb
+		2 -3 free -> 14Gb
+		Available: 16GB
+		
+		instance: t2.micro
+		
+		create -> 
+		
+		security
+			myip
+	
+
+
+
+Deploy applications
+
+
+
+
+0. S3 to upload code (javacode.jar, angular.zip)
+- upload and use endpoint (link) 
+
+1. Run springboot application
+- install java 8
+--- sudo yum install java-1.8.0-openjdk
+--- sudo yum install java-1.8.0-openjdk-devel
+--- sudo yum install java-1.8.0
+
+- download java jar
+-- wget link(s3 bucket)
+- java -jar appname.jar
+
+
+2. Run angular application
+- download angular code (html, js)
+-- wget link 
+$ unzip filename.zip
+
+- install server - httpd, nginx, tomcat, php, jboss
+-- nginx 
+	$ sudo yum install nginx
+	// amazon command
+    -- sudo amazon-linux-extras install nginx1
+
+	After installation:
+		public ip:80
+		public ip
+			ec2-34-238-154-157.compute-1.amazonaws.com
+			34.238.154.157
+		
+		
+	// switch to root user
+	$ sudo su 
+
+	$ sudo service nginx stop
+	
+    // copy angular code here
+	$ cd usr/share/nginx/html
+	
+	// delete
+	$ unlink index.html
+	....
+	$ rm -rf icons
+	
+	
+	$ cd /usr/share/nginx/html
+	$ cp /home/ec2-user/code/ng/state-management-demo/*.* .
+	
+	
+	$ sudo service nginx start

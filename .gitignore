@@ -5,7 +5,7 @@
 /**/.mtj.tmp/
 /**/*.class
 /**/bin/
-#/**/*.jar
+/**/*.jar
 /**/*.war
 /**/*.ear
 /**/*.nar
@@ -101,3 +101,5 @@ resources/Project/github
 
 /**/~*.*
 .~lock.Java Full Stack  Curriculum -  9 weeks cirriculum.xlsx#
+
+!aws/ec2/p10-springboot-crud-h2-0.0.1-SNAPSHOT.jar
