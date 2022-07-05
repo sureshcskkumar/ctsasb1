@@ -1,5 +1,4 @@
 
-EC2 -> VM
 
 
 Lambda

@@ -1,0 +1,12 @@
+GET http://44.204.231.111:8080/books
+###
+POST http://44.204.231.111:8080/books
+content-type: application/json
+
+{
+    "id": 2,
+    "title": "Ironman",
+    "author": "Thor",
+    "price": 88.14
+}
+###
